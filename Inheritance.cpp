@@ -35,7 +35,7 @@ class SmartLight: public SmartDevice{
         deviceId=id;
     }
     void details(){
-        cout<<"SmartLights-> deviceId--"<<deviceId<<" isOn--"<<isOn<<" brightness--"<<brightness<<endl;
+        cout<<"SmartLights-> deviceId--"<<deviceId<<" isOn status-- "<<(isOn ? "On" : "Off")<<" brightness--"<<brightness<<endl;
     }
 };
 class SmartFan: private SmartDevice{
@@ -47,10 +47,10 @@ class SmartFan: private SmartDevice{
         deviceId=id;
     }
     void setOn(){
-        isOn=true;
+        turnOn();  //calling base class method
     }
      void details(){
-        cout<<"SmartFan-> deviceId--"<<deviceId<<" isOn--"<<isOn<<" speed--"<<speed<<endl;
+        cout<<"SmartFan-> deviceId--"<<deviceId<<" isOn status-- "<<(isOn ? "On" : "Off")<<" speed--"<<speed<<endl;
     }
 };
 
@@ -67,5 +67,6 @@ int main(){
     sl.details();
     sf.setOn();
     sf.details();
+    // sl.isOn();  -- gives error: do some brainstorming
     return 0;
 }
