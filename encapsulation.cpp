@@ -34,6 +34,9 @@ class Bank{
         this->accountNumber=accountNumber;
         this->balance=balance;
     }
+    ~Bank(){
+         cout << "Account of " << accountHolderName << " is being closed.\n";
+    }
 
 };
 
@@ -46,5 +49,6 @@ int main(){
        cout<<"balance is: "<<b1->getBalance()<<endl;
     b1->withdraw(200);
         cout<<"balance is: "<<b1->getBalance()<<endl;
+    delete b1;
     return 0;
 }
